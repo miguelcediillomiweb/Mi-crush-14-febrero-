@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Crush | 14 de Febrero</title>
     <style>
-        /* Estilos Base */
         body {
             margin: 0; padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,13 +12,10 @@
             display: flex; flex-direction: column; align-items: center;
             min-height: 100vh; overflow-x: hidden; text-align: center;
         }
-
-        /* Cabecera */
         header { margin-top: 40px; z-index: 10; padding: 0 20px; }
         h1 { color: #d81b60; font-size: 1.8rem; margin-bottom: 5px; text-transform: lowercase; }
         .pregunta-wa { color: #880e4f; font-weight: bold; font-size: 1.1rem; margin-bottom: 25px; }
 
-        /* Botones de Emojis SI / NO */
         .emoji-selection { display: flex; gap: 40px; margin-bottom: 30px; z-index: 10; transition: opacity 0.5s; }
         .emoji-box { display: flex; flex-direction: column; align-items: center; }
         .btn-emoji {
@@ -32,7 +28,6 @@
         .btn-emoji:hover { transform: scale(1.15); }
         .label { margin-top: 12px; font-weight: bold; color: #d81b60; font-size: 1.2rem; }
 
-        /* Contenedor de Video (Optimizado para YouTube) */
         #video-section {
             display: none; width: 90%; max-width: 315px; 
             aspect-ratio: 9/16; background: #000; border-radius: 20px;
@@ -42,26 +37,23 @@
         }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Botón de WhatsApp Rosa */
         .btn-whatsapp {
             display: flex; align-items: center; justify-content: center;
             background-color: #ff69b4; color: white; text-decoration: none;
             padding: 18px 35px; border-radius: 50px; font-weight: bold;
             box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
             z-index: 10; margin-bottom: 50px; border: 2px solid white;
-            transition: background 0.3s, transform 0.3s;
+            transition: transform 0.2s;
         }
-        .btn-whatsapp:hover { background-color: #ff1493; transform: scale(1.02); }
+        .btn-whatsapp:hover { transform: scale(1.05); }
         .btn-whatsapp img { width: 25px; margin-right: 12px; filter: brightness(0) invert(1); }
 
-        /* Copyright Solicitado */
         footer {
             margin-top: auto; padding: 25px; font-size: 0.85rem;
             color: #880e4f; z-index: 10; font-weight: bold;
             background: rgba(255, 255, 255, 0.2); width: 100%;
         }
 
-        /* Corazones Flotantes */
         .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
         .heart { position: absolute; color: #ff4d6d; animation: float 6s linear infinite; opacity: 0; }
         @keyframes float { 
@@ -76,14 +68,13 @@
 
     <header>
         <h1>este 14 de febrero la pasaré con mi crush</h1>
-        <div class="pregunta-wa">quieres conocer a mi crush da click aqui</div>
+        <div class="pregunta-wa">quieres conocer a mi crush?</div>
     </header>
 
-    <!-- Sección de Emojis -->
     <div class="emoji-selection" id="selector">
         <div class="emoji-box">
             <button class="btn-emoji" onclick="activarVideo()">👍</button>
-            <span class="label">SI</span>
+            <span class="label">SÍ</span>
         </div>
         <div class="emoji-box">
             <button class="btn-emoji" onclick="activarVideo()">👎</button>
@@ -91,7 +82,6 @@
         </div>
     </div>
 
-    <!-- Video de YouTube (VxbF7Vtnn38) -->
     <div id="video-section">
         <iframe id="yt-player" width="100%" height="100%" 
             src="" 
@@ -101,10 +91,9 @@
         </iframe>
     </div>
 
-    <!-- Botón WhatsApp -->
-    <a href="https://wa.me" class="btn-whatsapp" target="_blank">
-        <img src="https://upload.wikimedia.org" alt="Icono WhatsApp">
-        Contactar por WhatsApp
+    <a href="https://wa.me/525665470369?text=¡Hola!%20Quiero%20conocer%20a%20tu%20Crush%20🍊" class="btn-whatsapp" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Icono WhatsApp">
+        quieres conocer a mi crush da click aqui
     </a>
 
     <footer>
@@ -112,20 +101,18 @@
     </footer>
 
     <script>
-        // Función para mostrar y reproducir el video
         function activarVideo() {
             const container = document.getElementById('video-section');
             const player = document.getElementById('yt-player');
             
-            // Inyectar el video con autoplay
-            player.src = "https://www.youtube.com";
+            // Se inserta el ID del video VxbF7Vtnn38 con autoplay=1 y mute=0 para que suene
+            player.src = "https://www.youtube.com/embed/VxbF7Vtnn38?autoplay=1&rel=0";
             
             container.style.display = 'block';
-            document.getElementById('selector').style.opacity = "0.3"; // Atenuar emojis tras selección
+            document.getElementById('selector').style.opacity = "0.3"; 
             container.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Animación de corazones
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
